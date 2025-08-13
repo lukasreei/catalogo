@@ -171,3 +171,6 @@ h1 {
 .item-images:has(img:only-child) {
     justify-content: center; /* centraliza horizontalmente */
 }
+.section-green {
+    background-color: #2e7d32; /* verde escuro */
+}
