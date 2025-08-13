@@ -1,103 +1,173 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    font-family: 'Roboto', sans-serif;
+    background: #f2f2f2;
+    margin: 0;
     padding: 20px;
     color: #333;
 }
 
-h1, h2 {
+h1 {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
+    font-weight: 700;
+    font-size: 2rem;
 }
 
-h2 {
-    margin-top: 50px;
+.section {
+    margin-bottom: 60px;
 }
 
-.catalog, .color-sets {
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* cores das seções */
+.section-red { background-color: #d32f2f; }
+.section-pink { background-color: #c2185b; }
+.section-yellow { background-color: #fbc02d; color: #333; }
+.section-purple { background-color: #4a148c; }
+.section-teal { background-color: #00695c; }
+.section-brown { background-color: #3e2723; }
+
+.catalog {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
 }
 
 .item {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    transition: transform 0.2s;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
 }
 
 .item:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-.item img {
+.item-images {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
     width: 100%;
-    height: 180px;
+}
+
+.item-images::-webkit-scrollbar {
+    height: 8px;
+}
+
+.item-images::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+.item-images img {
+    width: 220px;
+    height: 220px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 12px;
+    flex-shrink: 0;
+    border: 2px solid #eee;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform 0.3s, border-color 0.3s;
 }
 
-.item img:hover {
+.item-images img:hover {
     transform: scale(1.05);
+    border-color: #ff4500;
 }
 
-.item-name {
-    margin-top: 10px;
+.item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.item p {
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.item .price {
     font-weight: bold;
-}
-
-.item-price {
+    font-size: 1.2rem;
     color: #ff4500;
-    margin-top: 5px;
-    font-size: 1.1em;
+    background: #fff3e0;
+    padding: 8px 14px;
+    border-radius: 20px;
 }
 
-/* Lightbox único */
+/* Lightbox/modal */
 .lightbox {
     display: none;
     position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.85);
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
     justify-content: center;
     align-items: center;
-    z-index: 999;
-    padding: 20px;
+    cursor: zoom-out;
 }
 
 .lightbox img {
     max-width: 90%;
     max-height: 90%;
-    border-radius: 10px;
+    border-radius: 12px;
 }
 
 .lightbox.active {
     display: flex;
 }
 
-.close {
+.lightbox .close {
     position: absolute;
     top: 20px;
     right: 30px;
     color: #fff;
     font-size: 2em;
+    text-decoration: none;
     cursor: pointer;
-    background: rgba(0,0,0,0.4);
-    padding: 5px 10px;
-    border-radius: 50%;
-    transition: background 0.2s;
 }
 
-.close:hover {
-    background: rgba(0,0,0,0.7);
+@media (max-width: 768px) {
+    .item-images img {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+@media (max-width: 500px) {
+    .item-images img {
+        width: 140px;
+        height: 140px;
+    }
+    .catalog {
+        gap: 15px;
+    }
+}
+/* Centraliza a imagem quando houver apenas uma dentro de .item-images */
+.item-images:has(img:only-child) {
+    justify-content: center; /* centraliza horizontalmente */
 }

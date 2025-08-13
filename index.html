@@ -5,361 +5,163 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Catálogo de Kits Coloridos</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-<style>
-body {
-    font-family: 'Roboto', sans-serif;
-    background: #f2f2f2;
-    margin: 0;
-    padding: 20px;
-    color: #333;
-}
-
-h1 {
-    text-align: center;
-    margin-bottom: 50px;
-    font-weight: 700;
-    font-size: 2rem;
-}
-
-.section {
-    margin-bottom: 60px;
-}
-
-.section-title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    padding: 12px 20px;
-    border-radius: 8px;
-    margin-bottom: 25px;
-    color: white;
-    text-align: center;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-
-.section-red { background-color: #d32f2f; }
-.section-pink { background-color: #c2185b; }
-.section-yellow { background-color: #fbc02d; color: #333; }
-
-.catalog {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-}
-
-.item {
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-}
-
-.item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-.item-images {
-    display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-    width: 100%;
-}
-
-.item-images::-webkit-scrollbar {
-    height: 8px;
-}
-
-.item-images::-webkit-scrollbar-thumb {
-    background-color: #ccc;
-    border-radius: 4px;
-}
-
-.item-images img {
-    width: 220px;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 12px;
-    flex-shrink: 0;
-    border: 2px solid #eee;
-    cursor: pointer;
-    transition: transform 0.3s, border-color 0.3s;
-}
-
-.item-images img:hover {
-    transform: scale(1.05);
-    border-color: #ff4500;
-}
-
-.item h3 {
-    font-size: 1.3rem;
-    margin-bottom: 8px;
-    text-align: center;
-}
-
-.item p {
-    font-size: 1rem;
-    color: #555;
-    text-align: center;
-    margin-bottom: 12px;
-}
-
-.item .price {
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: #ff4500;
-    background: #fff3e0;
-    padding: 8px 14px;
-    border-radius: 20px;
-}
-
-/* Lightbox/modal */
-.lightbox {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.8);
-    justify-content: center;
-    align-items: center;
-}
-
-.lightbox img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 12px;
-}
-
-.lightbox.active {
-    display: flex;
-}
-
-.lightbox .close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    color: #fff;
-    font-size: 2em;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-@media (max-width: 768px) {
-    .item-images img {
-        width: 180px;
-        height: 180px;
-    }
-}
-
-@media (max-width: 500px) {
-    .item-images img {
-        width: 140px;
-        height: 140px;
-    }
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>Catálogo de Kits Coloridos</h1>
+
     <!-- Seção Taças -->
-<div class="section">
-    <div class="section-title" style="background-color: #4a148c;">Taças Elegantes</div>
-    <div class="catalog">
-        <div class="item">
-            <div class="item-images">
-                <img src="images/tacas/tacavinho.jpg" alt="Taça Cristal 1">
+    <div class="section">
+        <div class="section-title section-purple">Taças Elegantes</div>
+        <div class="catalog">
+            <div class="item">
+                <div class="item-images">
+                    <img src="images/tacas/tacavinho.jpg" alt="Taça Cristal 1">
+                </div>
+                <h3>Taça</h3>
+                <p>Conjunto de 6 taças de cristal com design clássico amarelado, ideal para vinhos tintos.</p>
+                <div class="price">R$ 100,00</div>
             </div>
-            <h3>Taça</h3>
-            <p>Conjunto de 6 taças de cristal com design clássico amarelado, ideal para vinhos tintos.</p>
-            <div class="price">R$ 100,00</div>
-        </div>
-        <div class="item">
-            <div class="item-images">
-                <img src="images/tacas/chapaamarelo.jpg" alt="Taça Cristal 1">
+            <div class="item">
+                <div class="item-images">
+                    <img src="images/tacas/chapaamarelo.jpg" alt="Taça Cristal 2">
+                </div>
+                <h3>Taça</h3>
+                <p>Conjunto de 6 taças de cristal com design clássico amarelado, ideal para vinhos tintos.</p>
+                <div class="price">R$ 100,00</div>
             </div>
-            <h3>Taça</h3>
-            <p>Conjunto de 6 taças de cristal com design clássico amarelado, ideal para vinhos tintos.</p>
-            <div class="price">R$ 100,00</div>
-        </div>
-        <div class="item">
-            <div class="item-images">
-                <<img src="images/tacas/tacamaior.jpg" alt="Taça Cristal 1 detalhe">
-
+            <div class="item">
+                <div class="item-images">
+                    <img src="images/tacas/tacamaior.jpg" alt="Taça Cristal 3">
+                </div>
+                <h3>Taça Cristal 2</h3>
+                <p>Conjunto de 6 taças, perfeito para vinhos brancos e espumantes.</p>
+                <div class="price">R$ 60,00</div>
             </div>
-            <h3>Taça Cristal 2</h3>
-            <p>Conjunto de 6 taças, perfeito para vinhos brancos e espumantes.</p>
-            <div class="price">R$ 60,00</div>
-        </div>
-         <div class="item">
-            <div class="item-images">
-                <<img src="images/tacas/transparentes1.jpg" alt="Taça Cristal 1 detalhe">
+            <div class="item">
+                <div class="item-images">
+                    <img src="images/tacas/transparentes1.jpg" alt="Taça Cristal 4">
+                </div>
+                <h3>Taça Cristal 2</h3>
+                <p>Conjunto de 6 taças, perfeito para vinhos brancos e espumantes.</p>
+                <div class="price">R$ 80,00</div>
             </div>
-            <h3>Taça Cristal 2</h3>
-            <p>Conjunto de 6 taças, perfeito para vinhos brancos e espumantes.</p>
-            <div class="price">R$ 80,00</div>
-        </div>
-         <div class="item">
-            <div class="item-images">
-                <<img src="images/tacas/champ.jpg" alt="Taça Cristal 1 detalhe">
+            <div class="item">
+                <div class="item-images">
+                    <img src="images/tacas/champ.jpg" alt="Taça Cristal 5">
+                </div>
+                <h3>Taça Cristal 2</h3>
+                <p>Conjunto de 6 taças, perfeito para vinhos brancos e espumantes.</p>
+                <div class="price">R$ 80,00</div>
             </div>
-            <h3>Taça Cristal 2</h3>
-            <p>Conjunto de 6 taças, perfeito para vinhos brancos e espumantes.</p>
-            <div class="price">R$ 80,00</div>
-        </div>
-    </div>
-</div>
-
-
-<h1>Catálogo de Kits Coloridos</h1>
-<!-- Seção Amarelos -->
-<div class="section">
-    <div class="section-title section-yellow">Itens Amarelos</div>
-    <div class="catalog">
-        <div class="item">
-            <div class="item-images">
-                <img src="images/kit.jpg" alt="Kit Amarelo 1">
-                <img src="images/amarelos1.jpg" alt="Kit Amarelo 1 detalhe">
-                <img src="images/amarelo2.jpg" alt="Kit Amarelo 1 acessórios">
-                <img src="images/amarelo3.jpg" alt="Kit Amarelo 1 acessórios">
-                <img src="images/kitamarelo.jpg" alt="Kit Amarelo 1">
-            </div>
-            <h3>Kit Amarelo</h3>
-            <p>Inclui 6 xícaras, 6 Pires, 6 pratos fundos, 6 pratos rasos, 6 pratos pequenos, 1 panelinha de tampa, 1 pote, 1 mini caçarola, 2 adornos, 1 adorno quadrado</p>
-            <div class="price">R$ 350,00</div>
-        </div>
-</div>
-
-<!-- Seção Vermelhos -->
-<div class="section">
-    <div class="section-title section-red">Itens Vermelhos</div>
-    <div class="catalog">
-        <div class="item">
-            <div class="item-images">
-                <img src="images/vermelho1.jpg" alt="Kit Vermelho 1">
-                <img src="images/vermelho1b.jpg" alt="Kit Vermelho 1 detalhe">
-                <img src="images/vermelho1c.jpg" alt="Kit Vermelho 1 acessórios">
-            </div>
-            <h3>Kit Vermelho 1</h3>
-            <p>Inclui panela, frigideira e utensílios básicos em vermelho.</p>
-            <div class="price">R$ 95,00</div>
-        </div>
-        <div class="item">
-            <div class="item-images">
-                <img src="images/vermelho2.jpg" alt="Kit Vermelho 2">
-                <img src="images/vermelho2b.jpg" alt="Kit Vermelho 2 detalhe">
-            </div>
-            <h3>Kit Vermelho 2</h3>
-            <p>Inclui conjunto de facas, colheres e espátulas na cor vermelha.</p>
-            <div class="price">R$ 110,00</div>
         </div>
     </div>
-</div>
 
-<!-- Seção Rosas -->
-<div class="section">
-    <div class="section-title section-pink">Itens Rosas</div>
-    <div class="catalog">
-        <div class="item">
-            <div class="item-images">
-                <img src="images/rosas/kitrosa.jpg" alt="Kit Rosa 1">
-                <img src="images/rosas/potecoracao.jpg" alt="Kit Rosa 1">
-                <img src="images/rosas/adorno.jpg" alt="Kit Rosa 1">
-                <img src="images/rosas/coracao.jpg" alt="Kit Rosa 1">
-                <img src="images/rosas/geralsao.jpg" alt="Kit Rosa 1">
+    <!-- Seção Amarelos -->
+    <div class="section">
+        <div class="section-title section-yellow">Itens Amarelos</div>
+        <div class="catalog">
+            <div class="item">
+                <div class="item-images">
+                    <img src="images/kit.jpg" alt="Kit Amarelo 1">
+                    <img src="images/amarelos1.jpg" alt="Kit Amarelo 1 detalhe">
+                    <img src="images/amarelo2.jpg" alt="Kit Amarelo 1 acessórios">
+                    <img src="images/amarelo3.jpg" alt="Kit Amarelo 1 acessórios">
+                    <img src="images/kitamarelo.jpg" alt="Kit Amarelo 1">
+                </div>
+                <h3>Kit Amarelo</h3>
+                <p>Inclui 6 xícaras, 6 Pires, 6 pratos fundos, 6 pratos rasos, 6 pratos pequenos, 1 panelinha de tampa, 1 pote, 1 mini caçarola, 2 adornos, 1 adorno quadrado</p>
+                <div class="price">R$ 350,00</div>
             </div>
-            <h3>Kit Rosa 1</h3>
-            <p>Inclui</p>
-            <div class="price">R$ 450,00</div>
         </div>
     </div>
-</div>
-<!-- Seção Jarros e Itens de Sala -->
-<div class="section">
-    <div class="section-title" style="background-color: #00695c;">Jarros e Itens de Sala</div>
-    <div class="catalog">
-        <!-- Item 1 -->
-        <div class="item">
-            <div class="item-images">
-                <img src="images/sala/jarros.jpg" alt="Jarro Decorativo 1">
-                <img src="images/sala/vasodomeio.jpg" alt="Jarro Decorativo 1">
-                <img src="images/sala/vasos.jpg" alt="Jarro Decorativo 1">
-                <img src="images/sala/vasomenor.jpg" alt="Jarro Decorativo 1">
-                <img src="images/sala/vasomaior.jpg" alt="Jarro Decorativo 1">
-            </div>
-            <h3>vaso wels</h3>
-            <p>Vaso artesanal, totalmente artesanal, o que transforma cada peça em uma obra de arte atemporal, elegante e sofisticada.</p>
-            <div class="price">R$ 500,00</div>
-        </div>
 
-        <div class="item">
-            <div class="item-images">
-                <img src="images/jarro2.jpg" alt="Jarro Decorativo 2">
+    <!-- Seção Vermelhos -->
+    <div class="section">
+        <div class="section-title section-red">Itens Vermelhos</div>
+        <div class="catalog">
+            <div class="item">
+                <div class="item-images">
+                    <img src="images/vermelho1.jpg" alt="Kit Vermelho 1">
+                    <img src="images/vermelho1b.jpg" alt="Kit Vermelho 1 detalhe">
+                    <img src="images/vermelho1c.jpg" alt="Kit Vermelho 1 acessórios">
+                </div>
+                <h3>Kit Vermelho 1</h3>
+                <p>Inclui panela, frigideira e utensílios básicos em vermelho.</p>
+                <div class="price">R$ 95,00</div>
             </div>
-            <h3>Jarro Decorativo 2</h3>
-            <p>Jarro em cerâmica pintado à mão, adiciona charme e cor à sua sala.</p>
-            <div class="price">R$ 85,00</div>
+            <div class="item">
+                <div class="item-images">
+                    <img src="images/vermelho2.jpg" alt="Kit Vermelho 2">
+                    <img src="images/vermelho2b.jpg" alt="Kit Vermelho 2 detalhe">
+                </div>
+                <h3>Kit Vermelho 2</h3>
+                <p>Inclui conjunto de facas, colheres e espátulas na cor vermelha.</p>
+                <div class="price">R$ 110,00</div>
+            </div>
         </div>
     </div>
-</div>
-<!-- Seção Kit de Quadros -->
-<div class="section">
-    <div class="section-title" style="background-color: #3e2723;">Kit de Quadros</div>
-    <div class="catalog">
-        <!-- Item 1 -->
-        <div class="item">
-            <div class="item-images">
-                <img src="images/sala/quadros.jpg" alt="Kit de Quadros 1">
+
+    <!-- Seção Rosas -->
+    <div class="section">
+        <div class="section-title section-pink">Itens Rosas</div>
+        <div class="catalog">
+            <div class="item">
+                <div class="item-images">
+                    <img src="images/rosas/kitrosa.jpg" alt="Kit Rosa 1">
+                    <img src="images/rosas/potecoracao.jpg" alt="Kit Rosa 1">
+                    <img src="images/rosas/adorno.jpg" alt="Kit Rosa 1">
+                    <img src="images/rosas/coracao.jpg" alt="Kit Rosa 1">
+                    <img src="images/rosas/geralsao.jpg" alt="Kit Rosa 1">
+                </div>
+                <h3>Kit Rosa 1</h3>
+                <p>Inclui diversos itens decorativos rosa.</p>
+                <div class="price">R$ 450,00</div>
             </div>
-            <h3>Kit de Quadros</h3>
-            <p>Conjunto de 3 quadros decorativos com moldura em madeira e estampas modernas, ideal para salas e escritórios.</p>
-            <div class="price">R$ 150,00</div>
         </div>
     </div>
-</div>
 
+    <!-- Seção Jarros e Itens de Sala -->
+    <div class="section">
+        <div class="section-title section-teal">Jarros e Itens de Sala</div>
+        <div class="catalog">
+            <div class="item">
+                <div class="item-images">
+                    <img src="images/sala/jarros.jpg" alt="Jarro Decorativo 1">
+                    <img src="images/sala/vasodomeio.jpg" alt="Jarro Decorativo 1">
+                    <img src="images/sala/vasos.jpg" alt="Jarro Decorativo 1">
+                    <img src="images/sala/vasomenor.jpg" alt="Jarro Decorativo 1">
+                    <img src="images/sala/vasomaior.jpg" alt="Jarro Decorativo 1">
+                </div>
+                <h3>Vasos Wels</h3>
+                <p>inclui 3 vasos wels</p>
+                <p>Vasos artesanal, totalmente artesanal, o que transforma cada peça em uma obra de arte atemporal, elegante e sofisticada.</p>
+                <div class="price">R$ 500,00</div>
+            </div>
+        </div>
+    </div>
 
-<!-- Lightbox/modal -->
-<div id="lightbox" class="lightbox">
-    <span class="close">&times;</span>
-    <img src="" alt="Imagem ampliada">
-</div>
+    <!-- Seção Kit de Quadros -->
+    <div class="section">
+        <div class="section-title section-brown">Kit de Quadros</div>
+        <div class="catalog">
+            <div class="item">
+                <div class="item-images">
+                    <img src="images/sala/quadros.jpg" alt="Kit de Quadros 1">
+                </div>
+                <h3>Kit de Quadros</h3>
+                <p>Conjunto de 3 quadros decorativos com moldura em madeira e estampas modernas, ideal para salas e escritórios.</p>
+                <div class="price">R$ 150,00</div>
+            </div>
+        </div>
+    </div>
 
-<script>
-// Seleciona todas as imagens dentro dos itens
-const images = document.querySelectorAll('.item-images img');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = lightbox.querySelector('img');
-const closeBtn = lightbox.querySelector('.close');
+    <!-- Lightbox/modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img src="" alt="Imagem ampliada">
+    </div>
 
-// Ao clicar na imagem, abre o lightbox com a imagem maior
-images.forEach(img => {
-    img.addEventListener('click', () => {
-        lightboxImg.src = img.src;
-        lightbox.classList.add('active');
-    });
-});
-
-// Fecha o lightbox ao clicar no "×"
-closeBtn.addEventListener('click', () => {
-    lightbox.classList.remove('active');
-});
-
-// Fecha o lightbox ao clicar fora da imagem
-lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
-        lightbox.classList.remove('active');
-    }
-});
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
