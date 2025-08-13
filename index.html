@@ -3,117 +3,278 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Catálogo de Itens de Cozinha</title>
-<link rel="stylesheet" href="style.css">
+<title>Catálogo de Kits Coloridos</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #f2f2f2;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.section {
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.section-red { background-color: #d32f2f; }
+.section-pink { background-color: #c2185b; }
+.section-yellow { background-color: #fbc02d; color: #333; }
+
+.catalog {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.item {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.item-images {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.item-images::-webkit-scrollbar {
+    height: 8px;
+}
+
+.item-images::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+.item-images img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    flex-shrink: 0;
+    border: 2px solid #eee;
+    cursor: pointer;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.item-images img:hover {
+    transform: scale(1.05);
+    border-color: #ff4500;
+}
+
+.item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.item p {
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.item .price {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #ff4500;
+    background: #fff3e0;
+    padding: 8px 14px;
+    border-radius: 20px;
+}
+
+/* Lightbox/modal */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 2em;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .item-images img {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+@media (max-width: 500px) {
+    .item-images img {
+        width: 140px;
+        height: 140px;
+    }
+}
+</style>
 </head>
 <body>
 
-<h1>Catálogo de Itens de Cozinha</h1>
-
-<div class="catalog">
-  <div class="item">
-    <a href="#img1"><img src="images/imagem1.jpg" alt="Panela Antiaderente"></a>
-    <div class="item-name">Panela Antiaderente</div>
-    <div class="item-price">R$ 120,00</div>
-  </div>
-  <div class="item">
-    <a href="#img2"><img src="images/imagem2.jpg" alt="Conjunto de Facas"></a>
-    <div class="item-name">Conjunto de Facas</div>
-    <div class="item-price">R$ 80,00</div>
-  </div>
-  <div class="item">
-    <a href="#img3"><img src="images/imagem3.jpg" alt="Liquidificador"></a>
-    <div class="item-name">Liquidificador</div>
-    <div class="item-price">R$ 150,00</div>
-  </div>
-  <div class="item">
-    <a href="#img4"><img src="images/imagem4.jpg" alt="Jogo de Talheres"></a>
-    <div class="item-name">Jogo de Talheres</div>
-    <div class="item-price">R$ 60,00</div>
-  </div>
-  <div class="item">
-    <a href="#img5"><img src="images/imagem5.jpg" alt="Panela de Pressão"></a>
-    <div class="item-name">Panela de Pressão</div>
-    <div class="item-price">R$ 130,00</div>
-  </div>
-  <div class="item">
-    <a href="#img6"><img src="images/imagem6.jpg" alt="Batedeira"></a>
-    <div class="item-name">Batedeira</div>
-    <div class="item-price">R$ 200,00</div>
-  </div>
-  <div class="item">
-    <a href="#img7"><img src="images/imagem7.jpg" alt="Frigideira"></a>
-    <div class="item-name">Frigideira</div>
-    <div class="item-price">R$ 70,00</div>
-  </div>
-  <div class="item">
-    <a href="#img8"><img src="images/imagem8.jpg" alt="Tábua de Corte"></a>
-    <div class="item-name">Tábua de Corte</div>
-    <div class="item-price">R$ 25,00</div>
-  </div>
-  <div class="item">
-    <a href="#img9"><img src="images/imagem9.jpg" alt="Jogo de Xícaras"></a>
-    <div class="item-name">Jogo de Xícaras</div>
-    <div class="item-price">R$ 40,00</div>
-  </div>
-  <div class="item">
-    <a href="#img10"><img src="images/imagem10.jpg" alt="Panela Wok"></a>
-    <div class="item-name">Panela Wok</div>
-    <div class="item-price">R$ 150,00</div>
-  </div>
+<h1>Catálogo de Kits Coloridos</h1>
+<!-- Seção Amarelos -->
+<div class="section">
+    <div class="section-title section-yellow">Itens Amarelos</div>
+    <div class="catalog">
+        <div class="item">
+            <div class="item-images">
+                <img src="images/kit.jpg" alt="Kit Amarelo 1">
+                <img src="images/amarelos1.jpg" alt="Kit Amarelo 1 detalhe">
+                <img src="images/amarelo2.jpg" alt="Kit Amarelo 1 acessórios">
+                <img src="images/amarelo3.jpg" alt="Kit Amarelo 1 acessórios">
+                <img src="images/kitamarelo.jpg" alt="Kit Amarelo 1">
+            </div>
+            <h3>Kit Amarelo</h3>
+            <p>Inclui 6 xícaras, 6 Pires, 6 pratos fundos, 6 pratos rasos, 6 pratos pequenos, 1 panelinha de tampa, 1 pote, 1 mini caçarola, 2 adornos, 1 adorno quadrado</p>
+            <div class="price">R$ 350,00</div>
+        </div>
 </div>
 
-<!-- Lightboxes -->
-<div id="img1" class="lightbox"><a href="#" class="close">&times;</a><img src="images/imagem1.jpg" alt="Panela Antiaderente"></div>
-<div id="img2" class="lightbox"><a href="#" class="close">&times;</a><img src="images/imagem2.jpg" alt="Conjunto de Facas"></div>
-<div id="img3" class="lightbox"><a href="#" class="close">&times;</a><img src="images/imagem3.jpg" alt="Liquidificador"></div>
-<div id="img4" class="lightbox"><a href="#" class="close">&times;</a><img src="images/imagem4.jpg" alt="Jogo de Talheres"></div>
-<div id="img5" class="lightbox"><a href="#" class="close">&times;</a><img src="images/imagem5.jpg" alt="Panela de Pressão"></div>
-<div id="img6" class="lightbox"><a href="#" class="close">&times;</a><img src="images/imagem6.jpg" alt="Batedeira"></div>
-<div id="img7" class="lightbox"><a href="#" class="close">&times;</a><img src="images/imagem7.jpg" alt="Frigideira"></div>
-<div id="img8" class="lightbox"><a href="#" class="close">&times;</a><img src="images/imagem8.jpg" alt="Tábua de Corte"></div>
-<div id="img9" class="lightbox"><a href="#" class="close">&times;</a><img src="images/imagem9.jpg" alt="Jogo de Xícaras"></div>
-<div id="img10" class="lightbox"><a href="#" class="close">&times;</a><img src="images/imagem10.jpg" alt="Panela Wok"></div>
-
-<h2>Conjuntos Coloridos</h2>
-<div class="color-sets">
-  <!-- Conjunto Amarelo -->
-  <div class="item">
-    <a href="#amarelo"><img src="images/amarelo.jpg" alt="Conjunto Amarelo"></a>
-    <div class="item-name">Conjunto Amarelo</div>
-    <div class="item-price">R$ 90,00</div>
-  </div>
-  
-  <!-- Conjunto Vermelho -->
-  <div class="item">
-    <a href="#vermelho"><img src="images/vermelho.jpg" alt="Conjunto Vermelho"></a>
-    <div class="item-name">Conjunto Vermelho</div>
-    <div class="item-price">R$ 95,00</div>
-  </div>
-  
-  <!-- Conjunto Rosa -->
-  <div class="item">
-    <a href="#rosa"><img src="images/rosa.jpg" alt="Conjunto Rosa"></a>
-    <div class="item-name">Conjunto Rosa</div>
-    <div class="item-price">R$ 85,00</div>
-  </div>
+<!-- Seção Vermelhos -->
+<div class="section">
+    <div class="section-title section-red">Itens Vermelhos</div>
+    <div class="catalog">
+        <div class="item">
+            <div class="item-images">
+                <img src="images/vermelho1.jpg" alt="Kit Vermelho 1">
+                <img src="images/vermelho1b.jpg" alt="Kit Vermelho 1 detalhe">
+                <img src="images/vermelho1c.jpg" alt="Kit Vermelho 1 acessórios">
+            </div>
+            <h3>Kit Vermelho 1</h3>
+            <p>Inclui panela, frigideira e utensílios básicos em vermelho.</p>
+            <div class="price">R$ 95,00</div>
+        </div>
+        <div class="item">
+            <div class="item-images">
+                <img src="images/vermelho2.jpg" alt="Kit Vermelho 2">
+                <img src="images/vermelho2b.jpg" alt="Kit Vermelho 2 detalhe">
+            </div>
+            <h3>Kit Vermelho 2</h3>
+            <p>Inclui conjunto de facas, colheres e espátulas na cor vermelha.</p>
+            <div class="price">R$ 110,00</div>
+        </div>
+    </div>
 </div>
 
-<!-- Lightboxes para os conjuntos -->
-<div id="amarelo" class="lightbox">
-  <a href="#" class="close">&times;</a>
-  <img src="images/amarelo.jpg" alt="Conjunto Amarelo">
+<!-- Seção Rosas -->
+<div class="section">
+    <div class="section-title section-pink">Itens Rosas</div>
+    <div class="catalog">
+        <div class="item">
+            <div class="item-images">
+                <img src="images/rosa1.jpg" alt="Kit Rosa 1">
+                <img src="images/rosa1b.jpg" alt="Kit Rosa 1 detalhe">
+                <img src="images/rosa1c.jpg" alt="Kit Rosa 1 acessórios">
+            </div>
+            <h3>Kit Rosa 1</h3>
+            <p>Inclui batedeira, espátula e utensílios pequenos na cor rosa.</p>
+            <div class="price">R$ 85,00</div>
+        </div>
+        <div class="item">
+            <div class="item-images">
+                <img src="images/rosa2.jpg" alt="Kit Rosa 2">
+                <img src="images/rosa2b.jpg" alt="Kit Rosa 2 detalhe">
+            </div>
+            <h3>Kit Rosa 2</h3>
+            <p>Inclui xícaras, colheres e tábua de corte rosa.</p>
+            <div class="price">R$ 90,00</div>
+        </div>
+    </div>
 </div>
 
-<div id="vermelho" class="lightbox">
-  <a href="#" class="close">&times;</a>
-  <img src="images/vermelho.jpg" alt="Conjunto Vermelho">
+<!-- Lightbox/modal -->
+<div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img src="" alt="Imagem ampliada">
 </div>
 
-<div id="rosa" class="lightbox">
-  <a href="#" class="close">&times;</a>
-  <img src="images/rosa.jpg" alt="Conjunto Rosa">
-</div>
+<script>
+// Seleciona todas as imagens dentro dos itens
+const images = document.querySelectorAll('.item-images img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = lightbox.querySelector('img');
+const closeBtn = lightbox.querySelector('.close');
+
+// Ao clicar na imagem, abre o lightbox com a imagem maior
+images.forEach(img => {
+    img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('active');
+    });
+});
+
+// Fecha o lightbox ao clicar no "×"
+closeBtn.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+});
+
+// Fecha o lightbox ao clicar fora da imagem
+lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+        lightbox.classList.remove('active');
+    }
+});
+</script>
 
 </body>
 </html>

@@ -1,83 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
-    margin: 0;
     padding: 20px;
-}
-h1 {
-    text-align: center;
     color: #333;
-    margin-bottom: 40px;
 }
-.catalog {
+
+h1, h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h2 {
+    margin-top: 50px;
+}
+
+.catalog, .color-sets {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
 }
+
 .item {
     background-color: #fff;
     border-radius: 10px;
     padding: 15px;
     text-align: center;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
 }
+
+.item:hover {
+    transform: translateY(-4px);
+}
+
 .item img {
     width: 100%;
-    height: auto;
+    height: 180px;
+    object-fit: cover;
     border-radius: 10px;
     cursor: pointer;
     transition: transform 0.2s;
 }
+
 .item img:hover {
     transform: scale(1.05);
 }
+
 .item-name {
     margin-top: 10px;
     font-weight: bold;
-    color: #333;
 }
+
 .item-price {
     color: #ff4500;
     margin-top: 5px;
     font-size: 1.1em;
 }
+
+/* Lightbox único */
 .lightbox {
     display: none;
     position: fixed;
-    z-index: 999;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.8);
+    inset: 0;
+    background: rgba(0,0,0,0.85);
     justify-content: center;
     align-items: center;
+    z-index: 999;
+    padding: 20px;
 }
+
 .lightbox img {
     max-width: 90%;
     max-height: 90%;
     border-radius: 10px;
 }
-.lightbox:target {
+
+.lightbox.active {
     display: flex;
 }
+
 .close {
     position: absolute;
     top: 20px;
     right: 30px;
     color: #fff;
     font-size: 2em;
-    text-decoration: none;
-}
-h2 {
-    text-align: center;
-    color: #333;
-    margin-top: 50px;
-    margin-bottom: 30px;
+    cursor: pointer;
+    background: rgba(0,0,0,0.4);
+    padding: 5px 10px;
+    border-radius: 50%;
+    transition: background 0.2s;
 }
 
-.color-sets {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+.close:hover {
+    background: rgba(0,0,0,0.7);
 }
