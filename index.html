@@ -2,15 +2,118 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Catálogo de Cozinha</title>
-<style>
-/* CSS básico aqui */
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo de Itens de Cozinha</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <h1>Catálogo de Itens de Cozinha</h1>
+
 <div class="catalog">
-    <!-- Itens aqui -->
+  <div class="item">
+    <a href="#img1"><img src="images/imagem1.jpg" alt="Panela Antiaderente"></a>
+    <div class="item-name">Panela Antiaderente</div>
+    <div class="item-price">R$ 120,00</div>
+  </div>
+  <div class="item">
+    <a href="#img2"><img src="images/imagem2.jpg" alt="Conjunto de Facas"></a>
+    <div class="item-name">Conjunto de Facas</div>
+    <div class="item-price">R$ 80,00</div>
+  </div>
+  <div class="item">
+    <a href="#img3"><img src="images/imagem3.jpg" alt="Liquidificador"></a>
+    <div class="item-name">Liquidificador</div>
+    <div class="item-price">R$ 150,00</div>
+  </div>
+  <div class="item">
+    <a href="#img4"><img src="images/imagem4.jpg" alt="Jogo de Talheres"></a>
+    <div class="item-name">Jogo de Talheres</div>
+    <div class="item-price">R$ 60,00</div>
+  </div>
+  <div class="item">
+    <a href="#img5"><img src="images/imagem5.jpg" alt="Panela de Pressão"></a>
+    <div class="item-name">Panela de Pressão</div>
+    <div class="item-price">R$ 130,00</div>
+  </div>
+  <div class="item">
+    <a href="#img6"><img src="images/imagem6.jpg" alt="Batedeira"></a>
+    <div class="item-name">Batedeira</div>
+    <div class="item-price">R$ 200,00</div>
+  </div>
+  <div class="item">
+    <a href="#img7"><img src="images/imagem7.jpg" alt="Frigideira"></a>
+    <div class="item-name">Frigideira</div>
+    <div class="item-price">R$ 70,00</div>
+  </div>
+  <div class="item">
+    <a href="#img8"><img src="images/imagem8.jpg" alt="Tábua de Corte"></a>
+    <div class="item-name">Tábua de Corte</div>
+    <div class="item-price">R$ 25,00</div>
+  </div>
+  <div class="item">
+    <a href="#img9"><img src="images/imagem9.jpg" alt="Jogo de Xícaras"></a>
+    <div class="item-name">Jogo de Xícaras</div>
+    <div class="item-price">R$ 40,00</div>
+  </div>
+  <div class="item">
+    <a href="#img10"><img src="images/imagem10.jpg" alt="Panela Wok"></a>
+    <div class="item-name">Panela Wok</div>
+    <div class="item-price">R$ 150,00</div>
+  </div>
 </div>
+
+<!-- Lightboxes -->
+<div id="img1" class="lightbox"><a href="#" class="close">&times;</a><img src="images/imagem1.jpg" alt="Panela Antiaderente"></div>
+<div id="img2" class="lightbox"><a href="#" class="close">&times;</a><img src="images/imagem2.jpg" alt="Conjunto de Facas"></div>
+<div id="img3" class="lightbox"><a href="#" class="close">&times;</a><img src="images/imagem3.jpg" alt="Liquidificador"></div>
+<div id="img4" class="lightbox"><a href="#" class="close">&times;</a><img src="images/imagem4.jpg" alt="Jogo de Talheres"></div>
+<div id="img5" class="lightbox"><a href="#" class="close">&times;</a><img src="images/imagem5.jpg" alt="Panela de Pressão"></div>
+<div id="img6" class="lightbox"><a href="#" class="close">&times;</a><img src="images/imagem6.jpg" alt="Batedeira"></div>
+<div id="img7" class="lightbox"><a href="#" class="close">&times;</a><img src="images/imagem7.jpg" alt="Frigideira"></div>
+<div id="img8" class="lightbox"><a href="#" class="close">&times;</a><img src="images/imagem8.jpg" alt="Tábua de Corte"></div>
+<div id="img9" class="lightbox"><a href="#" class="close">&times;</a><img src="images/imagem9.jpg" alt="Jogo de Xícaras"></div>
+<div id="img10" class="lightbox"><a href="#" class="close">&times;</a><img src="images/imagem10.jpg" alt="Panela Wok"></div>
+
+<h2>Conjuntos Coloridos</h2>
+<div class="color-sets">
+  <!-- Conjunto Amarelo -->
+  <div class="item">
+    <a href="#amarelo"><img src="images/amarelo.jpg" alt="Conjunto Amarelo"></a>
+    <div class="item-name">Conjunto Amarelo</div>
+    <div class="item-price">R$ 90,00</div>
+  </div>
+  
+  <!-- Conjunto Vermelho -->
+  <div class="item">
+    <a href="#vermelho"><img src="images/vermelho.jpg" alt="Conjunto Vermelho"></a>
+    <div class="item-name">Conjunto Vermelho</div>
+    <div class="item-price">R$ 95,00</div>
+  </div>
+  
+  <!-- Conjunto Rosa -->
+  <div class="item">
+    <a href="#rosa"><img src="images/rosa.jpg" alt="Conjunto Rosa"></a>
+    <div class="item-name">Conjunto Rosa</div>
+    <div class="item-price">R$ 85,00</div>
+  </div>
+</div>
+
+<!-- Lightboxes para os conjuntos -->
+<div id="amarelo" class="lightbox">
+  <a href="#" class="close">&times;</a>
+  <img src="images/amarelo.jpg" alt="Conjunto Amarelo">
+</div>
+
+<div id="vermelho" class="lightbox">
+  <a href="#" class="close">&times;</a>
+  <img src="images/vermelho.jpg" alt="Conjunto Vermelho">
+</div>
+
+<div id="rosa" class="lightbox">
+  <a href="#" class="close">&times;</a>
+  <img src="images/rosa.jpg" alt="Conjunto Rosa">
+</div>
+
 </body>
 </html>
