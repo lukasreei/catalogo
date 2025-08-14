@@ -44,11 +44,13 @@ h1 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 25px;
+     justify-content: center;
 }
 /* Responsivo: 3 colunas em telas médias */
 @media (max-width: 1200px) {
     .catalog {
         grid-template-columns: repeat(3, 1fr);
+        justify-content: center;
     }
 }
 
@@ -56,6 +58,7 @@ h1 {
 @media (max-width: 900px) {
     .catalog {
         grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
     }
 }
 
@@ -63,6 +66,7 @@ h1 {
 @media (max-width: 600px) {
     .catalog {
         grid-template-columns: 1fr;
+        justify-content: center;
     }
 }
 .item {
