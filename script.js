@@ -70,23 +70,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
         item.appendChild(btn);
     });
-    const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.appbar ul');
+  const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.appbar ul');
+    const links = document.querySelectorAll('.appbar a');
 
-menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
-});
-
-// Adiciona classe active ao link clicado
-const links = document.querySelectorAll('.appbar a');
-links.forEach(link => {
-    link.addEventListener('click', () => {
-        links.forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
-        if (navLinks.classList.contains('show')) {
-            navLinks.classList.remove('show');
-        }
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
     });
-});
+
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            links.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+            if (navLinks.classList.contains('show')) {
+                navLinks.classList.remove('show');
+            }
+        });
+    });
 
 });
