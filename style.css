@@ -204,3 +204,54 @@ h1 {
 .section-green {
     background-color: #2e7d32; /* verde escuro */
 }
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    font-size: 0.9em;
+    margin-top: 40px;
+}
+/* Seção de Contatos */
+.contact-section {
+    background-color: #444;
+    color: #fff;
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 8px;
+    margin: 40px 20px 20px 20px;
+}
+
+.contact-section h2 {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.contact-section a {
+    color: #f1c40f;
+    text-decoration: none;
+}
+
+.contact-section a:hover {
+    text-decoration: underline;
+}
+
+/* Ícones de redes sociais */
+.contact-section .socials {
+    margin-top: 15px;
+}
+
+.contact-section .socials a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.contact-section .socials img {
+    width: 35px;
+    height: 35px;
+    transition: transform 0.2s;
+}
+
+.contact-section .socials img:hover {
+    transform: scale(1.2);
+}
