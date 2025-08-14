@@ -255,3 +255,7 @@ footer {
 .contact-section .socials img:hover {
     transform: scale(1.2);
 }
+.section-blue {
+    background-color: #3498db; /* azul agradável para móveis */
+    color: #fff;
+}
