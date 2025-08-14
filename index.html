@@ -226,53 +226,7 @@
         <img src="" alt="Imagem ampliada">
     </div>
 
-<script>
-     // Carrinho
-    const cartItems = [];
-
-    function addToCart(nome, preco) {
-        cartItems.push({ nome, preco });
-        atualizarCarrinho();
-    }
-
-    function atualizarCarrinho() {
-        const cartList = document.getElementById("cart-items");
-        cartList.innerHTML = "";
-        cartItems.forEach(item => {
-            const li = document.createElement("li");
-            li.textContent = item.nome; // apenas o nome no carrinho
-            cartList.appendChild(li);
-        });
-    }
-
-    function finalizarCompra() {
-        if (cartItems.length === 0) {
-            alert("Seu carrinho está vazio!");
-            return;
-        }
-        const numero = "5583991228516"; // coloque seu número com DDI+DDD+número
-        const mensagem = `Olá, gostaria de finalizar minha compra com os seguintes itens:\n- ${cartItems.map(item => item.nome).join("\n- ")}`;
-        const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
-        window.open(url, "_blank");
-    }
-
-    // Adiciona botão "Adicionar ao Carrinho" automaticamente
-    document.addEventListener("DOMContentLoaded", () => {
-        document.querySelectorAll(".item").forEach(item => {
-            const nome = item.querySelector("h3").textContent;
-            const precoText = item.querySelector(".price") ? item.querySelector(".price").textContent.replace("R$", "").replace(",", ".").trim() : "0";
-            const preco = parseFloat(precoText);
-
-            const btn = document.createElement("button");
-            btn.classList.add("add-to-cart");
-            btn.textContent = "Adicionar ao Carrinho";
-            btn.onclick = () => addToCart(nome, preco);
-
-            item.appendChild(btn);
-        });
-    });
-    
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
