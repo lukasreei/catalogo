@@ -42,10 +42,29 @@ h1 {
 
 .catalog {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 25px;
 }
+/* Responsivo: 3 colunas em telas médias */
+@media (max-width: 1200px) {
+    .catalog {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
 
+/* 2 colunas em tablets */
+@media (max-width: 900px) {
+    .catalog {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 1 coluna em celulares */
+@media (max-width: 600px) {
+    .catalog {
+        grid-template-columns: 1fr;
+    }
+}
 .item {
     background: white;
     border-radius: 12px;
