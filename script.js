@@ -26,6 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ---------------- Carrinho ----------------
     const cartItems = [];
+    const toggleCartBtn = document.getElementById('toggle-cart');
+const cart = document.getElementById('cart');
+
+toggleCartBtn.addEventListener('click', () => {
+    cart.classList.toggle('hidden');
+});
 
     function addToCart(nome, preco) {
         cartItems.push({ nome, preco });
@@ -52,6 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
         window.open(url, "_blank");
     }
+
+    
 
     document.querySelector(".checkout-btn").addEventListener("click", finalizarCompra);
 
