@@ -6,9 +6,18 @@
 <title>Catálogo de Kits Coloridos</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<style>
+</style>
 </head>
 <body>
     <h1>Catálogo de Kits Coloridos</h1>
+
+    <!-- Carrinho -->
+    <div id="cart" class="cart">
+        <h2>Carrinho</h2>
+        <ul id="cart-items"></ul>
+        <button class="checkout-btn" onclick="finalizarCompra()">Finalizar Compra</button>
+    </div>
 
     <!-- Seção Taças -->
     <div class="section">
@@ -120,61 +129,61 @@
             </div>
         </div>
     </div>
+
     <!-- Seção Pratos com Flores -->
-<div class="section">
-    <div class="section-title section-green">Pratos com Flores</div>
-    <div class="catalog">
-        <div class="item">
-            <div class="item-images">
-                <img src="images/flores/pratosflores.jpg" alt="Prato Flor 1">
+    <div class="section">
+        <div class="section-title section-green">Pratos com Flores</div>
+        <div class="catalog">
+            <div class="item">
+                <div class="item-images">
+                    <img src="images/flores/pratosflores.jpg" alt="Prato Flor 1">
+                </div>
+                <h3>Prato Flor</h3>
+                <p>Prato decorativo com estampa floral, ideal para refeições elegantes.</p>
+                <div class="price">R$ 120,00</div>
             </div>
-            <h3>Prato Flor</h3>
-            <p>Prato decorativo com estampa floral, ideal para refeições elegantes.</p>
-            <div class="price">R$ 120,00</div>
         </div>
     </div>
-</div>
-<!-- Seção Cestas -->
-<div class="section">
-    <div class="section-title section-orange">Cestas Decorativas</div>
-    <div class="catalog">
-        <div class="item">
-            <div class="item-images">
-                <img src="images/cestas/piquenique.jpg" alt="Cesta 1">
+
+    <!-- Seção Cestas -->
+    <div class="section">
+        <div class="section-title section-orange">Cestas Decorativas</div>
+        <div class="catalog">
+            <div class="item">
+                <div class="item-images">
+                    <img src="images/cestas/piquenique.jpg" alt="Cesta 1">
+                </div>
+                <h3>Cesta Rústica</h3>
+                <p>Cesta rústica com alças de palha, ideal para frutas ou decoração.</p>
+                <div class="price">R$ 60,00</div>
             </div>
-            <h3>Cesta Rústica</h3>
-            <p>Cesta rústica com alças de palha, ideal para frutas ou decoração.</p>
-            <div class="price">R$ 60,00</div>
-        </div>
-        <div class="item">
-            <div class="item-images">
-                <img src="images/cestas/cesta1.jpg" alt="Cesta 2">
-                <img src="images/cestas/cesta11.jpg" alt="Cesta 2 detalhe">
+            <div class="item">
+                <div class="item-images">
+                    <img src="images/cestas/cesta1.jpg" alt="Cesta 2">
+                    <img src="images/cestas/cesta11.jpg" alt="Cesta 2 detalhe">
+                </div>
+                <h3>Cesta Premium</h3>
+                <p>Cesta decorativa grande, perfeita para presentes ou organização da casa.</p>
+                <div class="price">R$ 60,00</div>
             </div>
-            <h3>Cesta Premium</h3>
-            <p>Cesta decorativa grande, perfeita para presentes ou organização da casa.</p>
-            <div class="price">R$ 60,00</div>
-        </div>
-        <div class="item">
-            <div class="item-images">
-                <img src="images/cestas/cestapreta.jpg" alt="Cesta 2">
+            <div class="item">
+                <div class="item-images">
+                    <img src="images/cestas/cestapreta.jpg" alt="Cesta 2">
+                </div>
+                <h3>Cesta Premium</h3>
+                <p>Cesta decorativa grande, perfeita para presentes ou organização da casa.</p>
+                <div class="price">R$ 80,00</div>
             </div>
-            <h3>Cesta Premium</h3>
-            <p>Cesta decorativa grande, perfeita para presentes ou organização da casa.</p>
-            <div class="price">R$ 80,00</div>
-        </div>
-        <div class="item">
-            <div class="item-images">
-                <img src="images/cestas/cestapreta.jpg" alt="Cesta 2">
+            <div class="item">
+                <div class="item-images">
+                    <img src="images/cestas/cestapreta.jpg" alt="Cesta 2">
+                </div>
+                <h3>Cesta Premium</h3>
+                <p>Cesta decorativa grande, perfeita para presentes ou organização da casa.</p>
+                <div class="price">R$ 80,00</div>
             </div>
-            <h3>Cesta Premium</h3>
-            <p>Cesta decorativa grande, perfeita para presentes ou organização da casa.</p>
-            <div class="price">R$ 80,00</div>
         </div>
     </div>
-</div>
-
-
 
     <!-- Seção Jarros e Itens de Sala -->
     <div class="section">
@@ -212,15 +221,58 @@
     </div>
 
     <!-- Lightbox/modal -->
-   <div id="lightbox" class="lightbox">
-    <span class="close">&times;</span>
-    <img src="" alt="Imagem ampliada">
-</div>
-<div id="cart">Carrinho 🛒 (<span id="cart-count">0</span>)</div>
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img src="" alt="Imagem ampliada">
+    </div>
 
+<script>
+     // Carrinho
+    const cartItems = [];
 
+    function addToCart(nome, preco) {
+        cartItems.push({ nome, preco });
+        atualizarCarrinho();
+    }
 
-<script src="script.js">
+    function atualizarCarrinho() {
+        const cartList = document.getElementById("cart-items");
+        cartList.innerHTML = "";
+        cartItems.forEach(item => {
+            const li = document.createElement("li");
+            li.textContent = item.nome; // apenas o nome no carrinho
+            cartList.appendChild(li);
+        });
+    }
+
+    function finalizarCompra() {
+        if (cartItems.length === 0) {
+            alert("Seu carrinho está vazio!");
+            return;
+        }
+        const numero = "5583991228516"; // coloque seu número com DDI+DDD+número
+        const mensagem = `Olá, gostaria de finalizar minha compra com os seguintes itens:\n- ${cartItems.map(item => item.nome).join("\n- ")}`;
+        const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+        window.open(url, "_blank");
+    }
+
+    // Adiciona botão "Adicionar ao Carrinho" automaticamente
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".item").forEach(item => {
+            const nome = item.querySelector("h3").textContent;
+            const precoText = item.querySelector(".price") ? item.querySelector(".price").textContent.replace("R$", "").replace(",", ".").trim() : "0";
+            const preco = parseFloat(precoText);
+
+            const btn = document.createElement("button");
+            btn.classList.add("add-to-cart");
+            btn.textContent = "Adicionar ao Carrinho";
+            btn.onclick = () => addToCart(nome, preco);
+
+            item.appendChild(btn);
+        });
+    });
+    
 </script>
+
 </body>
 </html>

@@ -151,7 +151,35 @@ h1 {
     font-size: 2em;
     cursor: pointer;
 }
-
+.cart {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: white;
+        border: 1px solid #ccc;
+        padding: 15px;
+        width: 250px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        z-index: 1000;
+        font-family: Arial, sans-serif;
+    }
+    .cart h2 {
+        margin-top: 0;
+        font-size: 18px;
+    }
+    .add-to-cart {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        cursor: pointer;
+        border-radius: 4px;
+        margin-top: 5px;
+        display: inline-block;
+    }
+    .add-to-cart:hover {
+        background-color: #218838;
+    }
 
 @media (max-width: 768px) {
     .item-images img {
