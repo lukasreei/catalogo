@@ -39,14 +39,17 @@ toggleCartBtn.addEventListener('click', () => {
     }
 
     function atualizarCarrinho() {
-        const cartList = document.getElementById("cart-items");
-        cartList.innerHTML = "";
-        cartItems.forEach(item => {
-            const li = document.createElement("li");
-            li.textContent = item.nome; // apenas o nome
-            cartList.appendChild(li);
-        });
-    }
+    const cartList = document.getElementById("cart-items");
+    cartList.innerHTML = "";
+    cartItems.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item.nome;
+        cartList.appendChild(li);
+    });
+
+    // Atualiza quantidade no botão
+    cartCount.textContent = cartItems.length;
+}
 
     function finalizarCompra() {
         if (cartItems.length === 0) {
