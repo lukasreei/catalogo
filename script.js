@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = lightbox.querySelector('img');
     const closeBtn = lightbox.querySelector('.close');
+    const cartCount = document.getElementById("cart-count");
+
 
     images.forEach(img => {
         img.addEventListener('click', () => {
