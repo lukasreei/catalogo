@@ -39,6 +39,8 @@ h1 {
 .section-purple { background-color: #4a148c; }
 .section-teal { background-color: #00695c; }
 .section-brown { background-color: #3e2723; }
+.section-orange { background-color: #d32f2f;}
+.section-black { background-color: black;}
 
 .catalog {
     display: grid;
